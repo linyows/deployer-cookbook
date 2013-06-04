@@ -3,7 +3,7 @@
 # Copyright 2013, YOUR_COMPANY_NAME
 # All rights reserved - Do Not Redistribute
 
-u = data_bag_item('user', node[:deployer][:data_bag_id])
+u = data_bag_item('users', node[:deployer][:data_bag_id])
 
 if u && u['id']
   group u['group'] || u['id']
@@ -14,7 +14,7 @@ if u && u['id']
     supports :manage_home => true
   end
 
-  directory u['deployer']['deployment_root'] || node[:deployer][:deployment_root] do
+  directory "#{(u['deployer'] && u['deployer']['deployment_root']) || node[:deployer][:deployment_root]}" do
     owner "root"
     group u['group'] || u['id']
     mode "0775"
