@@ -6,9 +6,7 @@
 u = data_bag_item('user', node[:deployer][:data_bag_id])
 
 if u && u['id']
-  group u['group'] || u['id'] do
-    members u['id'] if u['id']
-  end
+  group u['group'] || u['id']
 
   user u['id'] do
     shell "/bin/bash"
