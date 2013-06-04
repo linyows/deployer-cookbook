@@ -14,10 +14,8 @@ Just include deployer in your node's run_list:
   "run_list": [
     "recipe[deployer]"
   ],
-  "override_attributes": {
-      "deployer": {
-          "data_gag_id": "jenkins"
-      }
+  "deployer": {
+      "data_gag_id": "jenkins"
   }
 }
 ```
